@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+/* Color Variables */
+:root {
+    --color-coffee: #261410;
+    --color-cognac: #c2955a;
+    --color-amber: #bb6b36;
+    --color-emerald: #1b3a34;
+    --color-blush: #f9edf1;
+    --color-yellow-exito: #ffd400;
+}
+
+/* Font Variables */
+:root {
+    --font-cormorant: "Cormorant", serif;
+    --font-lato: "Lato", sans-serif;
+    --font-cookie: "Cookie", cursive;
+}
+
+/* Basic, neutral defaults */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-lato);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar utilities */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Font Utility Classes */
+.font-cormorant {
+    font-family: var(--font-cormorant);
+}
+
+.font-lato {
+    font-family: var(--font-lato);
+}
+
+.font-cookie {
+    font-family: var(--font-cookie);
+}
+
+/* Color Utility Classes */
+.text-coffee {
+    color: var(--color-coffee);
+}
+
+.text-cognac {
+    color: var(--color-cognac);
+}
+
+.text-amber {
+    color: var(--color-amber);
+}
+
+.text-emerald {
+    color: var(--color-emerald);
+}
+
+.text-blush {
+    color: var(--color-blush);
+}
+
+.text-yellow-exito {
+    color: var(--color-yellow-exito);
+}
+
+.bg-coffee {
+    background-color: var(--color-coffee);
+}
+
+.bg-cognac {
+    background-color: var(--color-cognac);
+}
+
+.bg-amber {
+    background-color: var(--color-amber);
+}
+
+.bg-emerald {
+    background-color: var(--color-emerald);
+}
+
+.bg-blush {
+    background-color: var(--color-blush);
+}
+
+.bg-yellow-exito {
+    background-color: var(--color-yellow-exito);
+}
+
+/* Typography Utilities */
+@layer utilities {
+    /* Display Typography - Largest sizes for hero sections */
+    .text-display-xl {
+        font-size: clamp(4.5rem, 6.429vw + 3.214rem, 9rem);
+        font-weight: 700;
+        line-height: 1.05;
+    }
+
+    .text-display-lg {
+        font-size: clamp(3.75rem, 5.357vw + 2.678rem, 7.5rem);
+        font-weight: 700;
+        line-height: 1.1;
+    }
+
+    .text-display-md {
+        font-size: clamp(3rem, 4.286vw + 2.142rem, 6rem);
+        font-weight: 700;
+        line-height: 1.15;
+    }
+
+    /* Heading Typography - For section headings */
+    .text-heading-xl {
+        font-size: clamp(2.5rem, 3.571vw + 1.786rem, 5rem);
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    .text-heading-lg {
+        font-size: clamp(2rem, 2.857vw + 1.429rem, 4rem);
+        font-weight: 600;
+        line-height: 1.25;
+    }
+
+    .text-heading-md {
+        font-size: clamp(1.75rem, 2.143vw + 1.321rem, 3rem);
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    .text-heading-sm {
+        font-size: clamp(1.5rem, 1.786vw + 1.214rem, 2.5rem);
+        font-weight: 600;
+        line-height: 1.35;
+    }
+
+    /* Body Typography - For content text */
+    .text-body-xl {
+        font-size: clamp(1.25rem, 1.071vw + 1.107rem, 1.875rem);
+        font-weight: 400;
+        line-height: 1.6;
+    }
+
+    .text-body-lg {
+        font-size: clamp(1.125rem, 0.714vw + 1.036rem, 1.5rem);
+        font-weight: 400;
+        line-height: 1.65;
+    }
+
+    .text-body-md {
+        font-size: clamp(1rem, 0.357vw + 0.964rem, 1.25rem);
+        font-weight: 400;
+        line-height: 1.7;
+    }
+
+    .text-body-sm {
+        font-size: clamp(0.875rem, 0.179vw + 0.857rem, 1rem);
+        font-weight: 400;
+        line-height: 1.75;
+    }
+
+    /* Caption & Label Typography */
+    .text-caption-lg {
+        font-size: clamp(0.875rem, 0.357vw + 0.821rem, 1.125rem);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 500;
+        line-height: 1.4;
+    }
+
+    .text-caption {
+        font-size: clamp(0.75rem, 0.357vw + 0.678rem, 1rem);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 400;
+        line-height: 1.5;
+    }
+
+    .text-caption-sm {
+        font-size: clamp(0.625rem, 0.179vw + 0.607rem, 0.75rem);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-weight: 400;
+        line-height: 1.6;
+    }
+}
+
+/* Swiper Navigation Button Styles */
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 20 !important;
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(4px) !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: white !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    border: none !important;
+}
+
+.swiper-button-prev-custom:hover,
+.swiper-button-next-custom:hover {
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.swiper-button-prev-custom {
+    left: 16px !important;
+}
+
+.swiper-button-next-custom {
+    right: 16px !important;
+}
+
+.swiper-button-prev-custom::after,
+.swiper-button-next-custom::after {
+    display: none !important;
+}
