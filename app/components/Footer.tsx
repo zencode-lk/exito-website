@@ -3,6 +3,7 @@
 import { Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import ScrollVelocity from "./ScrollVelocity";
 // import imgLogo from "figma:asset/3fdda514fea8fd9b8a58c0d8f1a5403e1f9467c5.png";
 
 export function Footer() {
@@ -10,8 +11,30 @@ export function Footer() {
 
   return (
     <footer className="bg-coffee text-white">
-      <div className="h-[100px] w-full bg-cognac"></div>
-      <div className="h-[200px] w-full bg-amber"></div>
+      <div className="h-[100px] w-full bg-cognac flex flex-row justify-evenly items-center">
+        <h2 className="font-lato text-lg sm:text-6xl text-blush font-extralight">
+          Let's Talk
+        </h2>
+        <a
+          href="mailto:roshni@exitofasteners.com"
+          className="font-lato text-lg sm:text-3xl text-blush font-extralight"
+        >
+          roshni@exitofasteners.com
+        </a>
+        <span className="text-lg sm:text-3xl text-blush font-extralight">
+          070123456789
+        </span>
+      </div>
+      <div className="h-[200px] w-full bg-coffee text-amber">
+        <ScrollVelocity
+          texts={[
+            "Your Trusted Leather Fasteners and Trims Solutions Provider.",
+            "Let's Become Partners!",
+          ]}
+          velocity={10}
+          className="custom-scroll-text text-display-md font-cormorant"
+        />
+      </div>
       <div className="flex flex-row justify-between  w-full px-4 py-12 md:px-8 lg:px-20">
         <div className="w-1/6">
           {/*<Image src="/logo.png" alt="K2AE Engineering & Consulting Ltd." width={100} height={100} />*/}

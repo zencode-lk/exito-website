@@ -454,9 +454,8 @@ export function HomePage() {
           </div>
         </div>
       </section>
-      <section className="bg-white min-h-screen w-full">
-        h
-        <div className="py-[75px] mx-auto w-full">
+      <section className="bg-blush min-h-screen w-full">
+        <div className="mx-auto w-full">
           <div className="flex w-full flex-col md:flex-row md:h-[70vh]">
             {imageUrls.map((url, index) => (
               <div
@@ -487,7 +486,18 @@ export function HomePage() {
           </div>
         </div>
       </section>
-      <section className="min-h-screen"></section>
+      <section className="min-h-screen bg-blush flex justify-center ">
+        <iframe
+          width="1280"
+          height="720"
+          src="https://www.youtube.com/embed/GBQegyIDRuY?si=Bu4lTNxqk-UbWfGY"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; "
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
+      </section>
     </>
   );
 }
