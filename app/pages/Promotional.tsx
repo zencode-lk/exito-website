@@ -116,17 +116,7 @@ export function Promotional() {
             how we can support your project.
           </p>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {services.map((service) => (
-              <ServiceGridItem
-                key={service.slug}
-                icon={service.icon}
-                title={service.title}
-                description={service.description}
-                href={`/services/${service.slug}`}
-              />
-            ))}
-          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4"></div>
         </div>
       </section>
 
