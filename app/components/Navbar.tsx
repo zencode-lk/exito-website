@@ -24,8 +24,8 @@ export function Navbar() {
 
   const navLinks = [
     { name: "About", path: "/about" },
-    { name: "Brands", path: "/projects" },
-    { name: "Promotional", path: "/services" },
+    { name: "Solutions", path: "/solutions" },
+    { name: "Promotions", path: "/promotional" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -55,7 +55,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden items-center gap-8 font-subtitle md:flex">
+          <div className="hidden items-center gap-8 font-lato md:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
