@@ -6,6 +6,7 @@ import Image from "next/image";
 import ScrollStack from "@/app/components/ScrollStack";
 import { ScrollStackItem } from "@/app/components/ScrollStackItem";
 import FadeContent from "@/app/components/FadeContent";
+import { MarketsCarousel } from "./Promotional.tsx";
 
 export function HomePage() {
   const containerRef = useRef(null);
@@ -162,7 +163,7 @@ export function HomePage() {
                 </div>
                 {/* Description Content */}
                 <div className="">
-                  <p className="text-caption-sm md:text-caption-lg font-lato z-100 text-emerald mt-2">
+                  <p className="text-body-md font-lato z-100 text-emerald mt-2">
                     Certified by Sedex, demonstrating our commitment to
                     responsible and ethical business practices in global supply
                     chains.
@@ -180,7 +181,7 @@ export function HomePage() {
                 </div>
                 {/* Description Content */}
                 <div className="">
-                  <p className="text-caption-sm md:text-caption-lg font-lato z-100 mix-blend-multiply mt-2">
+                  <p className="text-body-md font-lato z-100 mix-blend-multiply mt-2">
                     Audited and approved supplier for Kontoor Brands, meeting
                     their stringent quality and manufacturing standards.
                   </p>
@@ -197,7 +198,7 @@ export function HomePage() {
                 </div>
                 {/* Description Content */}
                 <div className="">
-                  <p className="text-caption-sm md:text-caption-lg font-lato z-100  sm:text-blush mt-2">
+                  <p className="text-body-md font-lato z-100  text-white mix-blend-difference  mt-2">
                     Audited and approved supplier for Mac, meeting their
                     stringent quality and manufacturing standards.
                   </p>
@@ -207,6 +208,8 @@ export function HomePage() {
           </div>
         </div>
       </section>
+       {/* Markets Carousel  */}
+       <MarketsCarousel/>
       <section className="flex bg-blush items-center justify-center bg-blush w-full pt-6">
         <div
           className="
@@ -374,7 +377,7 @@ export function HomePage() {
               <ScrollStackItem itemClassName="bg-coffee h-[350px] sm:h-[400px]">
                 <div className="w-full h-full flex flex-row justify-between items-center">
                   <img
-                    src="https://cdn.exitofasteners.com/bento/belts.png"
+                    src="https://cdn.exitofasteners.com/exitoTools.webp"
                     alt="Zipper"
                     className="w-5/12 h-full object-cover rounded-[2rem]"
                   />
@@ -382,7 +385,7 @@ export function HomePage() {
                     <h2 className="text-heading-lg font-cormorant text-blush w-full text-left">
                       Leather Waste Solutions
                     </h2>
-                    <p className="text-sm sm:text-body-sm font-lato text-blush text-justify sm:px-[1rem]">
+                    <p className="text-body-md font-lato text-blush text-justify sm:px-[1rem]">
                       We are currently focused on manufacturing 15,000–20,000
                       premium leather belts monthly for existing buyers in the
                       UK, Europe, and the USA, with capacity expansion aligned
@@ -400,7 +403,7 @@ export function HomePage() {
               <ScrollStackItem itemClassName="bg-amber h-[350px] sm:h-[400px]">
                 <div className="w-full h-full flex flex-row justify-between items-center">
                   <img
-                    src="https://cdn.exitofasteners.com/bento/belts.png"
+                    src="https://cdn.exitofasteners.com/zippers/whiteZipper.webp"
                     alt="Zipper"
                     className="w-5/12 h-full object-cover rounded-[2rem]"
                   />
@@ -408,7 +411,7 @@ export function HomePage() {
                     <h2 className="text-heading-lg font-cormorant text-blush w-full text-left">
                       Zipper Solutions
                     </h2>
-                    <p className="text-sm sm:text-body-sm font-lato text-blush text-justify sm:px-[1rem]">
+                    <p className="text-body-md font-lato text-blush text-justify sm:px-[1rem]">
                       We are currently focused on manufacturing 15,000–20,000
                       premium leather belts monthly for existing buyers in the
                       UK, Europe, and the USA, with capacity expansion aligned
@@ -427,7 +430,7 @@ export function HomePage() {
               <ScrollStackItem itemClassName="bg-emerald h-[350px] sm:h-[400px]">
                 <div className="w-full h-full flex flex-row justify-between items-center">
                   <img
-                    src="https://cdn.exitofasteners.com/bento/belts.png"
+                    src="https://cdn.exitofasteners.com/exitoBlackbelt.webp"
                     alt="Zipper"
                     className="w-5/12 h-full object-cover rounded-[2rem]"
                   />
@@ -435,7 +438,7 @@ export function HomePage() {
                     <h2 className="text-heading-lg font-cormorant text-blush w-full text-left">
                       Belt Solutions
                     </h2>
-                    <p className="text-sm sm:text-body-sm font-lato text-blush text-justify sm:px-[1rem]">
+                    <p className="text-body-md font-lato text-blush text-justify sm:px-[1rem]">
                       We are currently focused on manufacturing 15,000–20,000
                       premium leather belts monthly for existing buyers in the
                       UK, Europe, and the USA, with capacity expansion aligned
@@ -485,8 +488,13 @@ export function HomePage() {
             ))}
           </div>
         </div>
+        <div className="bg-amber p-4 w-full h-[300px] flex items-center justify-center relative overflow-hidden">
+          <h1 className="font-cormorant text-heading-xl text-center text-coffee scale-[1.25]">Advanced Leather Manufacturing Solutions for B2B Innovation. Premium Leather Manufacturing & Wholesale Supply for B2B. Precision Leather Craftsmanship</h1>
+
+        </div>
       </section>
-      <section className="min-h-screen bg-blush flex justify-center ">
+      <section className="min-h-screen bg-blush flex flex-col items-center justify-center ">
+
         <iframe
           width="1280"
           height="720"
