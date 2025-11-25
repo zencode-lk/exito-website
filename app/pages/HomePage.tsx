@@ -6,9 +6,17 @@ import Image from "next/image";
 import ScrollStack from "@/app/components/ScrollStack";
 import { ScrollStackItem } from "@/app/components/ScrollStackItem";
 import FadeContent from "@/app/components/FadeContent";
-import { MarketsCarousel } from "./Promotional.tsx";
+import { MarketsCarousel } from "./Promotional";
+import CircularText from "@/app/components/CircularText";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Premier Leather Belt Manufacturer & B2B Solutions',
+  description: 'Exito Fasteners is a premier B2B manufacturer specializing in high-quality leather belts and sustainable waste solutions. Partner with us for scalable production.',
+}
 
 export function HomePage() {
+
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -105,32 +113,57 @@ export function HomePage() {
         ref={containerRef}
         className="relative min-h-screen flex justify-center bg-gray-700 overflow-hidden"
       >
-        <div className="absolute flex w-full h-full items-center top-0 left-[5rem] opacity-100 z-100">
-          <div className="relative w-1/2 ">
+        {/* Text overlay - responsive positioning */}
+        <div className="absolute flex w-full h-full items-center top-0 left-4 sm:left-8 lg:left-[5rem] opacity-100 z-10">
+          <div className="relative w-full sm:w-3/4 lg:w-1/2">
             <div className="flex flex-col gap-0 m-0">
-              <h2 className="text-display-lg font-cormorant text-blush m-0">
+              <h2 data-aos="fade-up"
+                data-aos-delay="100"
+                data-aos-duration="1000"
+                className="text-2xl sm:text-9xl sm:text-display-xl font-cormorant text-blush m-0">
                 Crafted for
               </h2>
-              <h2 className="text-display-md text-blush font-cookie m-0">
+              <h2 data-aos="fade-up"
+                data-aos-delay="200"
+                data-aos-duration="1000"
+                className="text-xl sm:text-7xl sm:text-display-md text-blush font-cookie m-0">
                 Scale.
               </h2>
-              <h2 className="text-display-lg font-cormorant pl-[10rem] text-blush m-0">
+              <h2 data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-duration="1000"
+                className="text-2xl sm:text-9xl sm:text-display-lg font-cormorant pl-8 sm:pl-16 lg:pl-[10rem] text-blush m-0">
                 Defined by
               </h2>
-              <h2 className="text-display-md pl-[5rem] text-blush font-cookie m-0">
+              <h2 data-aos="fade-up"
+                data-aos-delay="400"
+                data-aos-duration="1000"
+                className="text-xl sm:text-7xl sm:text-display-md pl-4 sm:pl-8 lg:pl-[5rem] text-blush font-cookie m-0">
                 Quality.
               </h2>
             </div>
           </div>
         </div>
-        <div className="w-full h-[75%] overflow-hidden">
-          <img
-            src="https://cdn.exitofasteners.com/landing-001.png"
-            alt="Hero"
-            // Added responsive scaling classes here
-            className="w-full h-full object-cover object-center
-                     scale-125 sm:scale-100 transition-transform duration-300 ease-in-out"
+
+        {/* Image container with proper responsive scaling */}
+        <div className="w-full h-[100vh] overflow-hidden relative">
+          <Image
+            fetchPriority="high"
+            src="https://cdn.exitofasteners.com/exitoLandingPic.webp"
+            alt="Global Leather Crafting B2B"
+            fill
+            className="object-cover object-center"
+            sizes="100vw"
+            priority
           />
+          {/* CircularText - always positioned at bottom right */}
+          <div className="absolute right-4 bottom-4 sm:right-8 sm:top-1/2 lg:right-60 z-20">
+            <CircularText
+              text="EXITO*FASTENERS*LEATHERS*"
+              onHover="speedUp"
+              spinDuration={25}
+            />
+          </div>
         </div>
       </section>
 
@@ -142,22 +175,29 @@ export function HomePage() {
           style={{
             backgroundImage: "url('/leatherbg.png')",
           }}
+
         >
           {/* Main grid layout. */}
           <div className="flex flex-col h-full">
             <div className="p-4 text-coffee h-4/6">
-              <h2 className="text-display-lg  font-bold font-cookie bg-gradient-to-r from-amber-900 via-amber-500 to-amber-900 bg-clip-text text-transparent">
+              <h2 data-aos="fade-down"
+                data-aos-delay="100"
+                data-aos-duration="1000"
+                className="text-display-lg  font-bold font-cookie bg-gradient-to-r from-amber-900 via-amber-500 to-amber-900 bg-clip-text text-transparent">
                 View Our Audited Excellence.
               </h2>
             </div>
             <div className="h-[700px] md:h-[400px] w-full grid h-2/6 grid-cols-1 md:grid-cols-3 gap-[1rem]">
               {/* --- Card 1: Sedex --- */}
-              <div className="rounded-4xl border border-[1px] border-coffee rounded-xl overflow-hidden shadow-sm flex flex-col z-10 p-[2rem] items-center justify-evenly h-full">
+              <div data-aos="fade-up"
+                data-aos-delay="100"
+                data-aos-duration="1000"
+                className="rounded-4xl border border-[1px] border-coffee rounded-xl overflow-hidden shadow-sm flex flex-col z-10 p-[2rem] items-center justify-evenly h-full">
                 {/* Top space for logo */}
                 <div className="h-20 w-full flex items-center justify-center ">
                   <img
                     src="https://cdn.exitofasteners.com/sedex.png"
-                    alt="Sedex"
+                    alt="Sedex Certification"
                     className="h-12 w-auto max-w-full object-contain sm:h-14 md:h-16 lg:h-20"
                   />
                 </div>
@@ -170,12 +210,15 @@ export function HomePage() {
                   </p>
                 </div>
               </div>
-              <div className="rounded-4xl border border-[1px] border-coffee rounded-xl overflow-hidden shadow-sm flex flex-col z-10 p-[2rem] items-center justify-evenly h-full">
+              <div data-aos="fade-up"
+                data-aos-delay="200"
+                data-aos-duration="1000"
+                className="rounded-4xl border border-[1px] border-coffee rounded-xl overflow-hidden shadow-sm flex flex-col z-10 p-[2rem] items-center justify-evenly h-full">
                 {/* Top space for logo */}
                 <div className="h-20 w-full flex items-center justify-center text-sm text-gray-500 italic">
                   <img
                     src="https://cdn.exitofasteners.com/kontoor.png"
-                    alt="Sedex"
+                    alt="Kontoor Certification"
                     className="h-12 w-auto max-w-full object-contain sm:h-14 md:h-16 lg:h-20"
                   />
                 </div>
@@ -187,12 +230,15 @@ export function HomePage() {
                   </p>
                 </div>
               </div>
-              <div className="rounded-4xl border border-[1px] border-coffee rounded-xl overflow-hidden shadow-sm flex flex-col z-10 p-[2rem] items-center justify-evenly h-full">
+              <div data-aos="fade-up"
+                data-aos-delay="300"
+                data-aos-duration="1000"
+                className="rounded-4xl border border-[1px] border-coffee rounded-xl overflow-hidden shadow-sm flex flex-col z-10 p-[2rem] items-center justify-evenly h-full">
                 {/* Top space for logo */}
                 <div className="h-20 w-full flex items-center justify-center text-sm text-gray-500 italic">
                   <img
                     src="https://cdn.exitofasteners.com/mac.png"
-                    alt="Sedex"
+                    alt="Mc Donalds Certified"
                     className="h-12 w-auto max-w-full object-contain sm:h-14 md:h-16 lg:h-20"
                   />
                 </div>
@@ -208,8 +254,8 @@ export function HomePage() {
           </div>
         </div>
       </section>
-       {/* Markets Carousel  */}
-       <MarketsCarousel/>
+      {/* Markets Carousel  */}
+      <MarketsCarousel />
       <section className="flex bg-blush items-center justify-center bg-blush w-full pt-6">
         <div
           className="
@@ -224,7 +270,10 @@ export function HomePage() {
         >
           {/* Trust, Ethics & Manufacturing Scale - Large top left */}
 
-          <div className="trust col-span-2 row-span-2 bg-amber rounded-[1rem] overflow-hidden">
+          <div data-aos="fade-right"
+            data-aos-delay="100"
+            data-aos-duration="1000"
+            className="trust col-span-2 row-span-2 bg-amber rounded-[1rem] overflow-hidden">
             <FadeContent
               blur={true}
               duration={1000}
@@ -235,14 +284,17 @@ export function HomePage() {
             >
               <img
                 src="https://cdn.exitofasteners.com/bento/trust.png"
-                alt="Trust"
+                alt="Trusted Leather Manufacturers"
                 className="w-full h-full object-cover rounded-[1rem]"
               />
             </FadeContent>
           </div>
 
           {/* Specialized Machinery - Top right */}
-          <div className="specialized col-span-1 row-span-2 bg-emerald rounded-[1rem]  overflow-hidden">
+          <div data-aos="fade-left"
+            data-aos-delay="200"
+            data-aos-duration="1000"
+            className="specialized col-span-1 row-span-2 bg-emerald rounded-[1rem]  overflow-hidden">
             <FadeContent
               blur={true}
               duration={1000}
@@ -253,14 +305,17 @@ export function HomePage() {
             >
               <img
                 src="https://cdn.exitofasteners.com/bento/machine.png"
-                alt="Specialized"
+                alt="Italian Specialized machinery"
                 className="w-full h-full object-cover rounded-[1rem]"
               />
             </FadeContent>
           </div>
 
           {/* BELTS repeated - Bottom left */}
-          <div className="belts col-span-1 row-span-2 bg-coffee rounded-[1rem]  overflow-hidden  ">
+          <div data-aos="fade-up"
+            data-aos-delay="300"
+            data-aos-duration="1000"
+            className="belts col-span-1 row-span-2 bg-coffee rounded-[1rem]  overflow-hidden  ">
             <FadeContent
               blur={true}
               duration={1000}
@@ -271,14 +326,17 @@ export function HomePage() {
             >
               <img
                 src="https://cdn.exitofasteners.com/bento/belts.png"
-                alt="Belts"
+                alt="Belt Products"
                 className="w-full h-full object-contain rounded-[1rem]"
               />
             </FadeContent>
           </div>
 
           {/* Orange block - Center */}
-          <div className="orange col-span-1 row-span-1 bg-amber rounded-[1rem] overflow-hidden ">
+          <div data-aos="fade-zoom-in"
+            data-aos-delay="900"
+            data-aos-duration="1000"
+            className="orange col-span-1 row-span-1 bg-amber rounded-[1rem] overflow-hidden ">
             <FadeContent
               blur={true}
               duration={1000}
@@ -292,13 +350,16 @@ export function HomePage() {
                 className="text-white text-[8rem] sm:text-[20rem] font-cookie"
                 href="/about"
               >
-                Exito
+                <img src="./exito.png" alt="Exito Fasteners (pvt) ltd" />
               </Link>
             </FadeContent>
           </div>
 
           {/* Advanced Italian Machinery - Right tall */}
-          <div className=" advanced col-span-1 row-span-3 bg-amber rounded-[1rem] overflow-hidden ">
+          <div data-aos="fade-up"
+            data-aos-delay="500"
+            data-aos-duration="1000"
+            className=" advanced col-span-1 row-span-3 bg-amber rounded-[1rem] overflow-hidden ">
             <FadeContent
               blur={true}
               duration={1000}
@@ -309,14 +370,17 @@ export function HomePage() {
             >
               <img
                 src="https://cdn.exitofasteners.com/bento/italian.png"
-                alt="Advanced"
+                alt="Italian machinery"
                 className="w-full h-full object-contain rounded-[1rem]"
               />
             </FadeContent>
           </div>
 
           {/* Your Brand, Our Craft - Bottom center */}
-          <div className="your-brand  col-span-1 row-span-2 bg-emerald rounded-[1rem] overflow-hidden ">
+          <div data-aos="fade-down"
+            data-aos-delay="600"
+            data-aos-duration="1000"
+            className="your-brand  col-span-1 row-span-2 bg-emerald rounded-[1rem] overflow-hidden ">
             <FadeContent
               blur={true}
               duration={1000}
@@ -327,14 +391,17 @@ export function HomePage() {
             >
               <img
                 src="https://cdn.exitofasteners.com/bento/brand.png"
-                alt="Your Brand"
+                alt="Promotional - your brand our work"
                 className="w-full h-full  object-contain rounded-[1rem]"
               />
             </FadeContent>
           </div>
 
           {/* Let's Talk - Bottom left */}
-          <div className="lets-talk col-span-1 row-span-1 bg-amber rounded-[1rem] overflow-hidden ">
+          <div data-aos="fade-right"
+            data-aos-delay="700"
+            data-aos-duration="1000"
+            className="lets-talk col-span-1 row-span-1 bg-amber rounded-[1rem] overflow-hidden ">
             <FadeContent
               blur={true}
               duration={1000}
@@ -345,7 +412,7 @@ export function HomePage() {
               className="flex w-full h-full justify-center items-center"
             >
               <h3 className="text-blush text-heading-md  font-cormorant">
-                Let's Talk
+                Let&apos;s Talk
               </h3>
             </FadeContent>
           </div>
@@ -378,7 +445,7 @@ export function HomePage() {
                 <div className="w-full h-full flex flex-row justify-between items-center">
                   <img
                     src="https://cdn.exitofasteners.com/exitoTools.webp"
-                    alt="Zipper"
+                    alt="Leather Waste products"
                     className="w-5/12 h-full object-cover rounded-[2rem]"
                   />
                   <div className="flex flex-col h-full p-4 w-full justify-between p-[1rem]">
@@ -386,10 +453,7 @@ export function HomePage() {
                       Leather Waste Solutions
                     </h2>
                     <p className="text-body-md font-lato text-blush text-justify sm:px-[1rem]">
-                      We are currently focused on manufacturing 15,000–20,000
-                      premium leather belts monthly for existing buyers in the
-                      UK, Europe, and the USA, with capacity expansion aligned
-                      to new partner demands.
+                      From the cutting room floor to your pocket. We reimagine 'waste' by crafting high-quality goods entirely from rescued leather scraps. This isn't just recycling; it's a commitment to sustainable style.
                     </p>
                     <div className="relative flex flex-col">
                       <span className="text-xs sm:text-sm font-cormorent text-blush">
@@ -400,38 +464,11 @@ export function HomePage() {
                   </div>
                 </div>
               </ScrollStackItem>
-              <ScrollStackItem itemClassName="bg-amber h-[350px] sm:h-[400px]">
-                <div className="w-full h-full flex flex-row justify-between items-center">
-                  <img
-                    src="https://cdn.exitofasteners.com/zippers/whiteZipper.webp"
-                    alt="Zipper"
-                    className="w-5/12 h-full object-cover rounded-[2rem]"
-                  />
-                  <div className="flex flex-col h-full  p-4 w-full gap-[1rem] p-[1rem]">
-                    <h2 className="text-heading-lg font-cormorant text-blush w-full text-left">
-                      Zipper Solutions
-                    </h2>
-                    <p className="text-body-md font-lato text-blush text-justify sm:px-[1rem]">
-                      We are currently focused on manufacturing 15,000–20,000
-                      premium leather belts monthly for existing buyers in the
-                      UK, Europe, and the USA, with capacity expansion aligned
-                      to new partner demands.
-                    </p>
-                    <div className="relative flex flex-col">
-                      <span className="text-xs sm:text-sm font-cormorent text-blush">
-                        Learn More
-                      </span>
-                      <span className="relative left-[2rem] w-[50px] border border-blush mt-1 "></span>
-                    </div>
-                  </div>
-                </div>
-              </ScrollStackItem>
-
               <ScrollStackItem itemClassName="bg-emerald h-[350px] sm:h-[400px]">
                 <div className="w-full h-full flex flex-row justify-between items-center">
                   <img
                     src="https://cdn.exitofasteners.com/exitoBlackbelt.webp"
-                    alt="Zipper"
+                    alt="Best Leather Products"
                     className="w-5/12 h-full object-cover rounded-[2rem]"
                   />
                   <div className="flex flex-col h-full p-4 w-full gap-[1rem] p-[1rem]">
@@ -496,14 +533,17 @@ export function HomePage() {
       <section className="min-h-screen bg-blush flex flex-col items-center justify-center ">
 
         <iframe
-          width="1280"
-          height="720"
+
           src="https://www.youtube.com/embed/GBQegyIDRuY?si=Bu4lTNxqk-UbWfGY"
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; "
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
+          className=" h-[720px] w-[75%] rounded-4xl"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          data-aos-duration="1000"
         ></iframe>
       </section>
     </>

@@ -1,10 +1,18 @@
 "use client";
-
+import {Metadata} from 'next'
 import { useState, useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { Card } from '../components/Card';
 
+export const metadata: Metadata={
+  title:"Wholesale Leather Belts | OEM & Custom Manufacturing",
+  description:"High-volume leather belt manufacturing for global brands. Exito Fasteners offers expert OEM services, premium materials, and flexible partnership models."
+}
+
 export function Promotional() {
+
   const partnershipBenefits = [
     {
       title: 'Quality Manufacturing',
@@ -59,19 +67,20 @@ export function Promotional() {
 
   const capabilities = [
     'Leather belts: 30,000-50,000 units per month',
-    'Zippers: 500,000 units per month (Phase 1)',
     'Custom buckle design and manufacturing',
     'Advanced cutting and stitching',
     'Logo stamping and pattern work',
     'Quality control and inspection',
   ];
-
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="relative h-[400px] bg-gray-900">
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1759310610775-b298f34f73aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnbG9iYWwlMjBidXNpbmVzcyUyMHBhcnRuZXJzaGlwfGVufDF8fHx8MTc2MTM4Mjc5Mnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          src="https://cdn.exitofasteners.com/exitoBrownBeltCloseUp.webp"
           alt="Business partnership"
           className="w-full h-full object-cover opacity-60"
         />
@@ -79,35 +88,35 @@ export function Promotional() {
           <div className="text-center text-white px-4">
             <h1 className="text-white  text-heading-lg font-cormorant">Promotional Partnerships</h1>
             <p className="text-body-lg max-w-2xl font-cookie">
-              Partner with WinTex for quality manufacturing and reliable service
+              Partner with us for quality manufacturing and reliable service
             </p>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div  className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Introduction */}
         <section className="mb-20">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="mb-4">Your Manufacturing Partner</h2>
+            <h2 className="text-heading-lg font-cormorant mb-4">Your Manufacturing Partner</h2>
             <p className="text-gray-700 text-lg">
-              WinTex offers comprehensive manufacturing solutions for garment accessories. With our specialized facility in Udammita, Jaela and global presence, we help brands bring their vision to life with quality and precision.
+              Exito offers comprehensive manufacturing solutions for garment accessories. With our specialized facility in Udammita, Jaela and global presence, we help brands bring their vision to life with quality and precision.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {partnershipBenefits.map((benefit, index) => (
-              <Card key={index} className="p-6 text-center border border-gray-200 hover:shadow-md transition-shadow">
-                <h4 className="text-gray-900 mb-2">{benefit.title}</h4>
+              <div data-aos="fade-up" data-aos-delay={100*index} data-aos-duration={1000*index} key={index} className="rounded-xl p-6 text-center border border-gray-200 hover:shadow-md transition-shadow">
+                <h4 className="text-body-md text-gray-900 mb-2">{benefit.title}</h4>
                 <p className="text-gray-600">{benefit.description}</p>
-              </Card>
+              </div>
             ))}
           </div>
         </section>
 
         {/* Partnership Models */}
         <section className="mb-20">
-          <h2 className="mb-8">Partnership Models</h2>
+          <h2 className="mb-8 text-heading-md font-cormorant">Partnership Models</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {partnershipModels.map((model, index) => (
               <Card key={index} className="p-6 border border-gray-200 hover:shadow-lg transition-shadow">
@@ -128,10 +137,10 @@ export function Promotional() {
 
         {/* Our Manufacturing Capabilities */}
         <section className="mb-20">
-          <h2 className="mb-8">Our Manufacturing Capabilities</h2>
+          <h2 className="text-heading-md font-[cormorant] font-light mb-8">Our Manufacturing Capabilities</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="p-8 border border-gray-200">
-              <h3 className="text-gray-900 mb-6">What We Offer</h3>
+              <h3 className="text-body-lg text-gray-900 mb-6">What We Offer</h3>
               <div className="space-y-3">
                 {capabilities.map((capability, index) => (
                   <div key={index} className="flex items-start space-x-3">
@@ -143,7 +152,7 @@ export function Promotional() {
             </Card>
 
             <Card className="p-8 bg-gradient-to-br from-blue-50 to-purple-50 border border-blue-200">
-              <h3 className="text-gray-900 mb-6">Our Facilities</h3>
+              <h3 className="text-body-lg text-gray-900 mb-6">Our Facilities</h3>
               <div className="space-y-4">
                 <div>
                   <div className="text-gray-900 mb-1">Udammita, Jaela Facility</div>
@@ -168,7 +177,7 @@ export function Promotional() {
 
         {/* How We Work */}
         <section className="mb-20">
-          <h2 className="mb-8">How Our Partnership Works</h2>
+          <h2 className="text-heading-md font-cormorant mb-8">How Our Partnership Works</h2>
           <Card className="p-8 border border-gray-200">
             <div className="grid md:grid-cols-2 gap-12">
               <div>
@@ -295,7 +304,7 @@ export function MarketsCarousel() {
       name: "Bangladesh",
       flag: "🇧🇩",
       color: "from-green-500 to-red-500",
-      image: "https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=800&h=600&fit=crop",
+      image: "",
       description: "Growing textile and garment manufacturing hub",
       stats: { brands: "35+", years: "8+" }
     },
@@ -354,8 +363,8 @@ export function MarketsCarousel() {
             Markets We Serve
           </h2>
 
-          <p className="text-gray-400 font-cookie text-body-xl max-w-3xl mx-auto text-xl leading-relaxed px-4">
-            WinTex serves diverse markets across multiple continents, providing quality garment accessories to leading brands worldwide.
+          <p className="text-gray-400 font-cookie hidden sm:block text-body-xl max-w-3xl mx-auto text-xl leading-relaxed px-4">
+            Exito serves diverse markets across multiple continents, providing quality garment accessories to leading brands worldwide.
           </p>
         </div>
       </div>
@@ -387,9 +396,15 @@ export function MarketsCarousel() {
                   {/* Left Content */}
                   <div className="text-white space-y-8">
                     <div className="flex items-center space-x-4">
-                      <div className="text-8xl">{market.flag}</div>
+                      <div data-aos="fade-zoom-in"
+                      data-aos-delay="100"
+                      data-aos-duration="1000"
+                      className="text-8xl">{market.flag}</div>
                       <div>
-                        <h3 className="text-heading-xl font-cormorant font-bold mb-2">{market.name}</h3>
+                        <h3 data-aos="fade-up"
+                        data-aos-delay="200"
+                        data-aos-duration="1000"
+                        className="text-heading-xl font-cormorant font-bold mb-2">{market.name}</h3>
                         <div className={`h-1 w-24 bg-gradient-to-r ${market.color} rounded-full`}></div>
                       </div>
                     </div>
@@ -415,7 +430,10 @@ export function MarketsCarousel() {
                   </div>
 
                   {/* Right Content - Feature Card */}
-                  <div className="lg:ml-auto">
+                  <div data-aos="fade-up"
+                  data-aos-delay="400"
+                  data-aos-duration="1000"
+                  className="lg:ml-auto">
                     <div className="bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-2xl">
                       <h4 className="text-body-lg font-cormorant text-white mb-6">Market Highlights</h4>
                       <div className="space-y-4">
@@ -448,7 +466,7 @@ export function MarketsCarousel() {
       {/* Navigation Controls */}
       <button
         onClick={prevSlide}
-        className="absolute left-8 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-4 transition-all duration-300 group"
+        className="hidden sm:absolute left-8 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-4 transition-all duration-300 group"
       >
         <svg className="w-6 h-6 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -457,7 +475,7 @@ export function MarketsCarousel() {
 
       <button
         onClick={nextSlide}
-        className="absolute right-8 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-4 transition-all duration-300 group"
+        className="hidden sm:absolute right-8 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-4 transition-all duration-300 group"
       >
         <svg className="w-6 h-6 text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

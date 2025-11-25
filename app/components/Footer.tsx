@@ -10,20 +10,23 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-coffee text-white">
-      <div className="h-[100px] w-full bg-cognac flex flex-row justify-evenly items-center">
+    <footer className="bg-coffee z-80 text-white">
+      <div className="h-[100px] w-full bg-cognac flex flex-col sm:flex-row justify-evenly items-center">
         <h2 className="font-lato text-lg sm:text-6xl text-blush font-extralight">
           Let's Talk
         </h2>
         <a
-          href="mailto:roshni@exitofasteners.com"
+          href="mailto:sales@exitofasteners.com"
           className="font-lato text-lg sm:text-3xl text-blush font-extralight"
         >
-          roshni@exitofasteners.com
+          sales@exitofasteners.com
         </a>
-        <span className="text-lg sm:text-3xl text-blush font-extralight">
-          070123456789
-        </span>
+        <a
+          href="mailto:info@exitofasteners.com"
+          className="font-lato text-lg sm:text-3xl text-blush font-extralight"
+        >
+          info@exitofasteners.com
+        </a>
       </div>
       <div className="h-[200px] w-full bg-coffee text-amber">
         <ScrollVelocity
@@ -37,11 +40,10 @@ export function Footer() {
       </div>
       <div className="flex flex-row justify-between  w-full px-4 py-12 md:px-8 lg:px-20">
         <div className="w-1/6">
-          {/*<Image src="/logo.png" alt="K2AE Engineering & Consulting Ltd." width={100} height={100} />*/}
-          Exito
-          <p className="font-caption text-sm text-justify text-gray-300">
-            Engineering excellence in British Columbia. Innovative design,
-            rigorous compliance, and collaborative expertise.
+          <Image src="/exito.svg" alt="Exito Fasteners best Leather and Zipper Trims provider in south asia." width={100} height={100} />
+
+          <p className="font-caption mt-8 text-sm text-justify text-gray-300">
+          To deliver superior garment accessories that meet the evolving needs of our clients, ensuring timely delivery and consistent quality while fostering sustainable growth and contributing to the local economy.
           </p>
         </div>
         <div className="flex flex-col w-4/6 justify-center">
@@ -113,22 +115,23 @@ export function Footer() {
               <h3 className="font-title">Contact Us</h3>
               <ul className="space-y-3 font-caption text-sm">
                 <li className="flex items-center gap-2">
-                  <Phone size={16} className="text-[#D05F2A]" />
+                <Mail size={16} className="text-[#D05F2A]" />
                   <a
-                    href="tel:6049911976"
+                    href="mailto:info@exitofasteners.com"
                     className="transition-colors hover:text-[#D05F2A]"
                   >
-                    07234567345
+                    info@exitofasteners.com
                   </a>
                 </li>
                 <li className="flex items-center gap-2">
                   <Mail size={16} className="text-[#D05F2A]" />
                   <a
-                    href="mailto:engineering@k2ae.ca"
+                    href="mailto:sales@exitofasteners.com"
                     className="transition-colors hover:text-[#D05F2A]"
                   >
-                    hello@exito.com
+                    sales@exitofasteners.com
                   </a>
+
                 </li>
               </ul>
             </div>

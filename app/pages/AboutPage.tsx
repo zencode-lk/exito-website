@@ -3,6 +3,13 @@
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { useEffect } from 'react';
 import GlassSurface from '../components/GlassSurface';
+import CountUp from '../components/CountUp';
+import {Metadata} from 'next';
+
+export const metadata: Metadata = {
+  title:'About Exito Fasteners',
+  description:"Discover Exito Fasteners' legacy in premium craftsmanship. We combine industrial scale with modern sustainability to serve global fashion brands."
+}
 
 export function AboutPage() {
   const plants = [
@@ -47,7 +54,7 @@ export function AboutPage() {
       {/* Hero Section */}
       <div className="relative h-[400px] bg-gray-900">
         <ImageWithFallback
-          src="https://cdn.exitofasteners.com/factory-01.png"
+          src="https://cdn.exitofasteners.com/exitofactory.png"
           alt="Manufacturing facility"
           className="w-full h-full object-cover opacity-60"
         />
@@ -74,18 +81,26 @@ export function AboutPage() {
                 Our factory is committed to excellence, offering both custom and large-scale production for international markets.
               </p>
             </div>
-            <div className="bg-white p-8 rounded-2xl border border-gray-200" style={{ boxShadow: '0px 0px 25px 0px rgba(0, 0, 0, 0.05); background-image: url("/leatherbg.png"); background-size: 150%; background-position: center; background-repeat: no-repeat' }}>
-              <div className="grid grid-cols-2 gap-6">
+            <div className="bg-white p-8 rounded-2xl flex flex-col  justify-between border border-gray-200" style={{ boxShadow: '0px 0px 25px 0px rgba(0, 0, 0, 0.05); background-image: url("/leatherbg.png"); background-size: 150%; background-position: center; background-repeat: no-repeat' }}>
+              <div className="">
+                <div className="text-gray-900 text-heading-xl">
+                  <CountUp
+                    from={0}
+                    to={50000}
+                    separator=","
+                    direction="up"
+                    duration={1}
+                    className="count-up-text"
+                  />
+                  +
+              </div>
+                <div className="text-gray-600 font-montserrat text-caption-lg">Belts Monthly</div>
+              </div>
+              <div className="grid grid-cols-2 gap-6 w-full">
+
+
                 <div>
-                  <div className="text-gray-900 text-body-xl">50,000+</div>
-                  <div className="text-gray-600 font-montserrat text-caption-lg">Belts Monthly</div>
-                </div>
-                <div>
-                  <div className="text-gray-900 text-body-xl">500,000+</div>
-                  <div className="text-white mix-blend-difference font-montserrat text-caption-lg">Zippers Monthly</div>
-                </div>
-                <div>
-                  <div className="text-gray-900 text-body-xl">6</div>
+                  <div className="text-gray-900 text-body-xl">06</div>
                   <div className="text-gray-600 font-montserrat text-caption-lg">Global Offices</div>
                 </div>
                 <div>
@@ -101,15 +116,15 @@ export function AboutPage() {
       <section className="">
         <div className="grid md:grid-cols-1">
           <div className="p-8 flex sm:flex-row flex-col items-center justify-evenly border border-gray-200 bg-amber-900 rounded-lg " style={{ boxShadow: '0px 0px 25px 0px rgba(0, 0, 0, 0.05)' }}>
-            <h3 className="mb-3 font-cormorant text-heading-md text-blush w-[10px]">Our Vision</h3>
+            <h3 className="mb-3 font-cormorant text-heading-md text-blush sm:w-[10px]">Our Vision</h3>
             <p className="text-gray-200 font-lato font-light text-md sm:text-xl/10">
               To be the leading global provider of high-quality garment accessories, recognized for innovation, reliability, and exceptional service.
             </p>
           </div>
 
           <div className="p-8 flex sm:flex-row flex-col items-center justify-evenly border border-gray-200 bg-coffee rounded-lg " style={{ boxShadow: '0px 0px 25px 0px rgba(0, 0, 0, 0.05)' }}>
-            <h3 className=" mb-3 font-cormorant text-heading-md text-blush w-[10px]">Our Mission</h3>
-            <p className="text-gray-200 font-lato font-light text-md sm:text-xl/10 w-4/6">
+            <h3 className=" mb-3 font-cormorant text-heading-md text-blush sm:w-[10px]">Our Mission</h3>
+            <p className="text-gray-200 font-lato font-light text-md sm:text-xl/10 sm:w-4/6">
               To deliver superior garment accessories that meet the evolving needs of our clients, ensuring timely delivery and consistent quality while fostering sustainable growth and contributing to the local economy.
             </p>
           </div>
@@ -123,8 +138,8 @@ export function AboutPage() {
 
           <div className="grid md:grid-cols-1 gap-6">
 
-            <div className="flex p-6 border border-gray-200 hover:shadow-md transition-shadow bg-white rounded-2xl " style={{ boxShadow: '0px 0px 25px 0px rgba(0, 0, 0, 0.05)' }}>
-              <div className="w-1/2">
+            <div className="flex flex-col gap-4 sm:flex-row p-6 border border-gray-200 hover:shadow-md transition-shadow bg-white rounded-2xl " style={{ boxShadow: '0px 0px 25px 0px rgba(0, 0, 0, 0.05)' }}>
+              <div className="sm:w-1/2">
                 <h3 className="text-gray-900 mb-3 font-cookie text-heading-xl text-coffee">Leather Belts</h3>
                 <p className="text-gray-700 mb-4 font-lato font-light text-md sm:text-xl/10">
                   We manufacture leather belts for our existing buyers in the UK, Europe, and the USA, with an initial focus on producing 30,000 - 50,000 belts per month.
@@ -133,24 +148,11 @@ export function AboutPage() {
                   Capacity expansion for leather belts will be aligned with buyer demand in the subsequent phase.
                 </p>
               </div>
-              <div className="w-1/2">
+              <div className="sm:w-1/2">
                 <img src="https://cdn.exitofasteners.com/exitoCollection.webp" alt="Zipper" className="rounded-4xl w-full h-full object-cover" />
               </div>
             </div>
-            <div className="flex p-6 border border-gray-200 hover:shadow-md transition-shadow bg-white rounded-lg " style={{ boxShadow: '0px 0px 25px 0px rgba(0, 0, 0, 0.05)' }}>
-              <div className="w-1/2">
-                <h3 className="text-gray-900 mb-3 font-cookie text-heading-xl text-coffee">Zippers & Elasticated Tapes</h3>
-                <p className="text-gray-700 mb-4 font-lato font-light text-md sm:text-xl/10">
-                  Our manufacturing unit focuses on producing zippers and elasticated tapes for personnel protective kit manufacturers and garment exporters in Sri Lanka, Bangladesh, Pakistan, and India.
-                </p>
-                <p className="text-gray-600 font-lato font-bold text-body-sm sm:text-xl/10">
-                  First phase: 500,000 zippers per month, with planned capacity doubling in the second phase.
-                </p>
-              </div>
-              <div className="w-1/2">
-                <img src="https://cdn.exitofasteners.com/zippers/zipperCollection2.webp" alt="Zipper" className="rounded-4xl w-full h-full object-cover" />
-              </div>
-            </div>
+
           </div>
         </section>
       </div>
@@ -247,7 +249,7 @@ export function AboutPage() {
           </p>
         </div>
 
-       <hr className="my-16 border-gray-200 w-[80%] mx-auto" />
+        <hr className="my-16 border-gray-200 w-[80%] mx-auto" />
 
         {/* Manufacturing Facilities */}
         <div className="relative z-10 max-w-7xl mt-32 mx-auto px-4 mb-32">
@@ -263,7 +265,7 @@ export function AboutPage() {
                 <h4 className="font-cormorant text-2xl text-coffee text-heading-sm ">Hong Kong Corporate Headquarters</h4>
                 <h5 className="font-cookie text-body-lg text-amber-800 mb-6">Strategic Command Center</h5>
                 <p className="text-gray-700 font-lato text-xl/20 font-light leading-relaxed mb-2">
-                  Located on the 18th floor of the On Hong Commercial Building, our Hong Kong headquarters serves as the strategic nerve center of our global operations. This prime location in one of Asia's most important financial and trading hubs provides us with unparalleled access to international markets and supply chains.
+                  Located on the 18th floor of the On Hong Commercial Building, our Hong Kong headquarters serves as the strategic nerve center of our global operations. This prime location in one of Asia&apos;s most important financial and trading hubs provides us with unparalleled access to international markets and supply chains.
                 </p>
                 <p className="text-gray-700 font-lato leading-relaxed mb-6">
                   From this central command post, we coordinate our manufacturing operations across multiple countries, manage international client relationships, and oversee quality control standards that ensure consistency across all our production facilities.
@@ -281,9 +283,12 @@ export function AboutPage() {
               </div>
               <div className="order-1 md:order-2">
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1536431311719-398b6704d4cc?w=600"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                  data-aos-duration="1000"
+                  src="https://cdn.exitofasteners.com/factory-01.png"
                   alt="Hong Kong skyline and business district"
-                  className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                  className="w-full sm:h-[700px] object-cover rounded-2xl shadow-lg"
                 />
               </div>
             </div>
@@ -292,9 +297,12 @@ export function AboutPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600"
+                  data-aos="fade-up"
+                  data-aos-delay="1000"
+                  data-aos-duration="1000"
+                  src="https://cdn.exitofasteners.com/exitoBeltcollection2.webp"
                   alt="Leather manufacturing facility in Sri Lanka"
-                  className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                  className="w-full sm:h-[700px] object-cover rounded-2xl shadow-lg"
                 />
               </div>
               <div>
@@ -318,127 +326,64 @@ export function AboutPage() {
                 </div>
               </div>
             </div>
-
-            {/* China Factory */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="order-2 md:order-1">
-                <h4 className="font-cormorant text-heading-sm text-coffee mb-4">China Manufacturing Complex</h4>
-                <h5 className="font-cookie text-xl text-amber-800 mb-6">High-Volume Zipper Production</h5>
-                <p className="text-gray-700 font-lato text-xl/20 font-light leading-relaxed mb-2">
-                  Our Wenzhou manufacturing complex stands as a testament to high-volume precision manufacturing. This facility focuses exclusively on producing zippers and elasticated tapes, serving the growing demand from personnel protective equipment manufacturers and garment exporters across South Asia.
-                </p>
-                <p className="text-gray-700 font-lato leading-relaxed mb-6">
-                  With an impressive monthly output of 500,000 zippers, this facility utilizes advanced machinery from China and Italy to ensure consistent quality and rapid production cycles. The strategic location in Wenzhou provides excellent access to raw material suppliers and efficient logistics networks.
-                </p>
-                <div className="bg-gray-50 p-6 rounded-lg">
-                  <h6 className="font-cormorant text-lg text-coffee mb-3">Manufacturing Focus</h6>
-                  <ul className="space-y-2 font-lato text-gray-700">
-                    <li>• Monthly capacity: 500,000 zippers and tapes</li>
-                    <li>• Serving Sri Lanka, Bangladesh, Pakistan, and India</li>
-                    <li>• Advanced machinery from China and Italy</li>
-                    <li>• Planned capacity doubling in second phase</li>
-                    <li>• Specialized in protective equipment components</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="order-1 md:order-2">
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600"
-                  alt="Modern manufacturing facility in China"
-                  className="w-full h-80 object-cover rounded-2xl shadow-lg"
-                />
-              </div>
-            </div>
           </div>
         </div>
 
         {/* Supply Chain Network */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 mb-32">
-          <div className="bg-gradient-to-br from-amber-300 to-amber-900 rounded-3xl p-12 text-white">
-            <div className="text-center mb-16">
-              <h3 className="font-cormorant text-heading-lg text-white ">Global Supply Chain</h3>
-              <h4 className="font-cookie text-heading-sm text-amber-200 mb-8">Sourcing Excellence Worldwide</h4>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-12">
-              <div className="text-center">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                  <h5 className="font-cormorant text-body-xl text-coffee">Premium Leather</h5>
-                  <h6 className="font-cookie text-heading-sm text-gray-100 mb-6">India & Europe</h6>
-                  <p className="text-blush text-body-md font-lato leading-relaxed mb-4">
-                    We source the finest quality leather hides from certified tanneries across India and Europe, ensuring our belts meet the highest standards of durability and aesthetic appeal.
-                  </p>
-                  <p className="text-gray-300 font-lato text-sm">
-                    Our partnerships with established tanneries guarantee consistent supply of premium materials, supporting sustainable and ethical sourcing practices.
-                  </p>
-                </div>
-              </div>
-
-              <div className="text-center">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                  <h5 className="font-cormorant text-body-xl text-coffee">Zipper Components</h5>
-                  <h6 className="font-cookie text-heading-sm text-gray-100 mb-6">China</h6>
-                  <p className="text-blush text-body-md font-lato leading-relaxed mb-4">
-                    Precision-engineered metal and plastic components sourced from specialized manufacturers in China, ensuring reliability and consistency in our zipper production.
-                  </p>
-                  <p className="text-gray-300 font-lato text-sm">
-                    Advanced manufacturing techniques and quality control processes guarantee that every component meets our exacting specifications.
-                  </p>
-                </div>
-              </div>
-
-              <div className="text-center">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                  <h5 className="font-cormorant text-body-xl text-coffee ">Braided Tapes</h5>
-                  <h6 className="font-cookie text-heading-sm text-gray-100 mb-6">China</h6>
-                  <p className="text-blush text-body-md font-lato leading-relaxed mb-4">
-                    High-strength elasticated and woven tapes manufactured to precise specifications, supporting our production of durable and flexible garment accessories.
-                  </p>
-                  <p className="text-gray-300 font-lato text-sm">
-                    Our tape suppliers utilize advanced weaving technologies to create products that withstand rigorous testing and real-world applications.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Regional Offices */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 mb-32">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 mb-32">
           <div className="text-center mb-16">
-            <h3 className="font-cormorant text-heading-lg text-coffee mb-6">Regional Network</h3>
-            <h4 className="font-cookie text-2xl text-amber-800 mb-8">Expanding Our Reach</h4>
-            <p className="text-lg text-gray-700 font-lato leading-relaxed max-w-4xl mx-auto">
-              Our regional offices provide local expertise and support, ensuring seamless operations and customer service across diverse markets. Each office is strategically positioned to serve specific geographic regions while maintaining our global standards of excellence.
-            </p>
+            <h3 className="font-cormorant text-heading-lg text-coffee mb-4">Global Supply Chain</h3>
+            <h4 className="font-cookie text-heading-sm text-amber-600">Sourcing Excellence Worldwide</h4>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <h5 className="font-cormorant text-xl text-coffee mb-3">WinTex Sri Lanka</h5>
-              <h6 className="font-cookie text-lg text-amber-800 mb-4">Kohuwala Operations</h6>
-              <p className="text-gray-700 font-lato leading-relaxed">
-                Our Sri Lankan regional office coordinates local manufacturing operations, manages supplier relationships, and ensures quality control standards are maintained across all production activities in the region.
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Premium Leather */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500 opacity-20"></div>
+              <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-6 h-6 bg-amber-500 rounded-full"></div>
+                </div>
+                <h5 className="font-cormorant text-body-xl text-coffee mb-2">Premium Leather</h5>
+                <p className="font-cookie text-amber-600 mb-4">India & Europe</p>
+                <p className="text-gray-600 font-lato text-sm leading-relaxed">
+                  Finest quality hides from certified tanneries, ensuring durability and excellence.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <h5 className="font-cormorant text-xl text-coffee mb-3">WinTex China</h5>
-              <h6 className="font-cookie text-lg text-amber-800 mb-4">Wenzhou Hub</h6>
-              <p className="text-gray-700 font-lato leading-relaxed">
-                Located in the heart of China's manufacturing region, this office oversees high-volume production operations, manages supply chain logistics, and coordinates with local suppliers and manufacturers.
-              </p>
+            {/* Hardware */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl transform -rotate-1 group-hover:-rotate-2 transition-transform duration-500 opacity-20"></div>
+              <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-6 h-6 bg-amber-500 rounded-sm"></div>
+                </div>
+                <h5 className="font-cormorant text-body-xl text-coffee mb-2">Premium Hardware</h5>
+                <p className="font-cookie text-amber-600 mb-4">Italy & Germany</p>
+                <p className="text-gray-600 font-lato text-sm leading-relaxed">
+                  Precision-crafted buckles combining traditional craftsmanship with innovation.
+                </p>
+              </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-              <h5 className="font-cormorant text-xl text-coffee mb-3">WinTex Bangladesh</h5>
-              <h6 className="font-cookie text-lg text-amber-800 mb-4">Dhaka Presence</h6>
-              <p className="text-gray-700 font-lato leading-relaxed">
-                Our Bangladesh office serves as a key liaison with local garment manufacturers and exporters, facilitating the distribution of our zipper and tape products throughout the region&apos;s thriving textile industry.
-              </p>
+            {/* Craftsmanship */}
+            <div className="group relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500 opacity-20"></div>
+              <div className="relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-6 h-6 bg-amber-500 rounded-full transform rotate-45"></div>
+                </div>
+                <h5 className="font-cormorant text-body-xl text-coffee mb-2">Expert Craftsmanship</h5>
+                <p className="font-cookie text-amber-600 mb-4">Local Artisans</p>
+                <p className="text-gray-600 font-lato text-sm leading-relaxed">
+                  Skilled artisans with generations of expertise in traditional techniques.
+                </p>
+              </div>
             </div>
           </div>
         </div>
+
 
         {/* Global Impact Statistics */}
         <div className="relative z-10 bg-gradient-to-r from-coffee via-amber-900 to-coffee py-24">
