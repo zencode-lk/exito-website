@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant, Lato, Cookie } from "next/font/google";
+import { Cormorant, Lato, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
@@ -18,17 +18,25 @@ const lato = Lato({
   display: "swap",
 });
 
-const cookie = Cookie({
+const dancingScript = Dancing_Script({
   variable: "--font-cookie",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Exito Fasteners - Premium Leather Manufacturing Solutions",
+  title: {
+    template: "%s | Exito Fasteners",
+    default: 'Exito Fasteners | Premier Leather Manufacturer',
+  },
   description:
-    "Crafted for scale. Defined by quality. Professional leather manufacturing services including belts, zippers, and custom solutions.",
+    "Global B2B Leather Manufacturer. Professional leather manufacturing services including belts, and custom solutions.",
+  icons: {
+    icon: "/exito.svg",
+    shortcut: "/exito.svg",
+    apple: "/exito.svg",
+  },
 };
 
 export default function RootLayout({
@@ -39,11 +47,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${cormorant.variable} ${lato.variable} ${cookie.variable} antialiased`}
+        className={`${cormorant.variable} ${lato.variable} ${dancingScript.variable} bg-coffee antialiased overflow-x-hidden`}
       >
         <div className="flex flex-col">
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 overflow-x-hidden">{children}</main>
           <Footer />
         </div>
       </body>

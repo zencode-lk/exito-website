@@ -3,8 +3,8 @@
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 // import imgLogo from "figma:asset/3fdda514fea8fd9b8a58c0d8f1a5403e1f9467c5.png";
 
 export function Navbar() {
@@ -23,6 +23,7 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
+    { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Solutions", path: "/solutions" },
     { name: "Promotions", path: "/promotional" },
@@ -30,11 +31,11 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-4 z-50 w-full px-4">
+    <nav className="sticky top-0 z-50 w-full py-4 px-4">
       <div
         className={`mx-auto max-w-5xl px-6 py-3 md:py-4 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/90 backdrop-blur-sm shadow-lg rounded-full"
+            ? "bg-white/20 backdrop-blur-md shadow-lg rounded-full"
             : "bg-transparent"
         }`}
       >
@@ -44,14 +45,7 @@ export function Navbar() {
             href="/"
             className="flex-shrink-0 font-cookie text-heading-sm text-cognac cursor-pointer transition-opacity hover:opacity-80"
           >
-            {/*<Image
-            src="/logo.png"
-            alt="K2AE Engineering & Consulting Ltd."
-            width={100}
-            height={100}
-            className="h-10 w-auto"
-          />*/}
-            Exito
+            <Image src="/exito.svg" alt="Exito Logo" width={100} height={40} className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -60,12 +54,12 @@ export function Navbar() {
               <Link
                 key={link.path}
                 href={link.path}
-                className={`cursor-pointer transition-colors hover:text-[#D05F2A] ${
+                className={`cursor-pointer font-lato transition-colors hover:text-[#D05F2A] text-body-md ${
                   pathname === link.path
                     ? "text-[#D05F2A]"
                     : isScrolled
-                      ? "text-black"
-                      : "text-black"
+                      ? "text-gray-800"
+                      : "text-white"
                 }`}
               >
                 {link.name}
